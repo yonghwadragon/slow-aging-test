@@ -97,11 +97,11 @@ export default function Home() {
 
             <h1 className={styles.title}>🦌 나의 노화 속도는?</h1>
             <p className={styles.subtitle}>
-              간단한 테스트를 통해<br />나에게 맞는 건강 솔루션을 찾아봐!
+              간단한 테스트를 통해<br />지금 내 몸은 몇 살인지 점수로 확인해봐!
             </p>
 
 {ready ? (
-  <Link href="/game">
+  <Link href="/test">
     <button
       className={styles.startButton}
       onMouseDown={() => {

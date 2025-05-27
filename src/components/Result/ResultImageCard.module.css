@@ -1,0 +1,37 @@
+.cardWrapper {
+  background: #f4fcf6;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 30px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imageArea {
+  margin-bottom: 18px;
+}
+
+.resultImage {
+  border-radius: 50%;
+  border: 4px solid #b2f2e8;
+  background: #fff;
+}
+
+.resultTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #16897a;
+  text-align: center;
+}
+
+.resultDescription {
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+}

@@ -1,0 +1,44 @@
+/* src/components/Result/ResultHeader.module.css */
+
+.headerContainer {
+  text-align: center;
+  margin-bottom: 28px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.07);
+  padding: 32px 18px 22px 18px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imageWrapper {
+  margin-bottom: 20px;
+}
+
+.resultTitle {
+  font-size: 1.32rem;
+  color: #009e6f;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.resultDescription {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+@media (max-width: 500px) {
+  .headerContainer {
+    max-width: 95vw;
+    padding: 20px 4vw 16px 4vw;
+  }
+  .resultTitle {
+    font-size: 1.2rem;
+  }
+  .resultDescription {
+    font-size: 0.95rem;
+  }
+}

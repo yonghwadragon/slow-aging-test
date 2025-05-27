@@ -1,0 +1,63 @@
+.characterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  height: 200px;
+  margin: 20px 0;
+}
+
+.character {
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.moveLeft {
+  transform: translateX(-100px);
+}
+
+.moveCenter {
+  transform: translateX(0);
+}
+
+.moveRight {
+  transform: translateX(100px);
+}
+
+.positionIndicator {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.position {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.position.active {
+  background-color: #666;
+  transform: scale(1.2);
+}
+
+.character:not(.moveCenter) {
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 768px) {
+  .moveLeft { transform: translateX(-50px); }
+  .moveRight { transform: translateX(50px); }
+}

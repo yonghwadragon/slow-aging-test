@@ -1,0 +1,117 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f2f8ff, #e6ffed);
+  font-family: 'Noto Sans KR', sans-serif;
+  position: relative;
+}
+.loadingText {
+  font-size: 1.4rem;
+  font-family: DNFBitBitv2;
+  text-align: center;
+}
+.charBubbleWrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+.bubble {
+  position: absolute;
+  top: -90px;
+  left: 130px;
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: #333;
+  font-family: DNFBitBitv2;
+  max-width: none; 
+  width: max-content; 
+  max-width: 90vw; 
+  white-space: pre-line;  
+  word-break: keep-all;  
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  text-align: left;
+  z-index: 10;
+}
+
+.bubble .tail {
+  position: absolute;
+  bottom: -10px;
+  left: 28px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  transform: rotate(45deg);
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+.title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: DNFBitBitv2;
+  text-align: center;
+}
+.subtitle {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  max-width: 480px;
+  line-height: 1.6;
+}
+.startButton {
+  margin-top: 30px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #00b894;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: DNFBitBitv2;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  outline: none;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.startButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  animation: none;
+}
+.startButton:not(:disabled):hover {
+  animation-play-state: paused;
+  transform: scale(1.1);
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+@media (max-width: 600px) {
+  .bubble {
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 200px;
+  }
+  .bubble .tail {
+    left: calc(50% - 5px);
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .subtitle {
+    font-size: 0.95rem;
+  }
+}

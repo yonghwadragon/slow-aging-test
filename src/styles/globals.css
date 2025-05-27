@@ -18,7 +18,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: linear-gradient(135deg, #f2f8ff, #e6ffed);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,4 +39,11 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+@font-face {
+  font-family: 'DNFBitBitv2';
+  src: url('/fonts/DNFBitBitv2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

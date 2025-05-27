@@ -1,0 +1,58 @@
+/* src/components/Result/ShareButtons.module.css */
+.shareWrapper {
+  text-align: center;
+  margin: 28px 0 8px 0;
+}
+
+.shareTitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+  color: #13b887;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.copyButton,
+.shareButton,
+.instaButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 11px;
+  border: none;
+  background: #e1fbef;
+  color: #009e6f;
+  font-size: 0.99rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s, color 0.18s;
+  text-decoration: none;
+  margin: 0;
+}
+.copyButton:hover, .shareButton:hover, .instaButton:hover {
+  background: #b8f5e0;
+  color: #158157;
+}
+
+@media (max-width: 500px) {
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .copyButton,
+  .shareButton,
+  .instaButton {
+    width: 88vw;
+    justify-content: center;
+    font-size: 1rem;
+  }
+}

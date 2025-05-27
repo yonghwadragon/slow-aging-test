@@ -1,0 +1,52 @@
+/* src/components/Result/ProductCard.module.css */
+.card {
+  background: #f8fff6;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  text-align: center;
+  margin-top: 18px;
+  padding: 26px 18px 18px 18px;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image {
+  margin: 0 auto 16px;
+  border-radius: 12px;
+}
+
+.name {
+  font-size: 1.13rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #20a078;
+}
+
+.description {
+  color: #4c4c4c;
+  margin-bottom: 14px;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0;
+  color: #0d7965;
+  font-size: 0.97rem;
+}
+
+@media (max-width: 500px) {
+  .card {
+    max-width: 94vw;
+    padding: 20px 4vw;
+  }
+  .name {
+    font-size: 1.05rem;
+  }
+  .description {
+    font-size: 0.95rem;
+  }
+  .benefits {
+    font-size: 0.9rem;
+  }
+}

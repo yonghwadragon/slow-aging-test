@@ -1,0 +1,71 @@
+/* src/components/Result/ReelsSlider.module.css */
+
+.sliderWrapper {
+  margin: 30px 0 20px 0;
+  text-align: center;
+  padding: 0 0 18px 0;
+}
+
+.title {
+  font-size: 1.08rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: #1e7f5c;
+}
+
+.reelCard {
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  overflow: hidden;
+  background: linear-gradient(120deg, #e9fdf2 60%, #fdfbf1 100%);
+  max-width: 265px;
+  margin: 0 auto;
+  transition: transform 0.15s;
+  cursor: pointer;
+}
+.reelCard:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.14);
+}
+
+.thumbnail {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.reelTitle {
+  margin: 12px 0 6px 0;
+  font-weight: bold;
+  color: #00796b;
+  font-size: 1.05rem;
+  letter-spacing: -0.5px;
+  white-space: pre-line;
+}
+
+.playIcon {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(20, 157, 112, 0.85); /* 더 선명한 초록 */
+  color: #fff;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+  pointer-events: none;
+  transition: background 0.2s;
+}
+
+.reelCard:hover .playIcon {
+  background: #1dd197;
+}

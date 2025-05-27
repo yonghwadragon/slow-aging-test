@@ -1,3 +1,10 @@
+// pages/test.js
+import dynamic from "next/dynamic";
+
+const GameScreen = dynamic(() => import("@/components/Game/GameScreen"), {
+  ssr: false,
+});
+
 export default function TestPage() {
-  return <div>테스트 페이지입니다</div>;
+  return <GameScreen />;
 }

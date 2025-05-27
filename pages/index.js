@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>지친유형테스트</title>
+        <title>나의 노화 속도는?</title>
         <meta name="description" content="게임형 설문을 통해 건강 제품을 추천합니다" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -95,7 +95,7 @@ export default function Home() {
               </div>
             </div>
 
-            <h1 className={styles.title}>🦌 지친 나를 위한 테스트 !!</h1>
+            <h1 className={styles.title}>🦌 나의 노화 속도는?</h1>
             <p className={styles.subtitle}>
               간단한 테스트를 통해<br />나에게 맞는 건강 솔루션을 찾아봐!
             </p>

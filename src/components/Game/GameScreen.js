@@ -48,7 +48,7 @@ const GameScreen = () => {
           <div
             key={index}
             className={`${styles.option} ${styles[option.direction]}`}
-            onClick={() => answerQuestion(currentQuestion.id, option.score, option.direction)}
+            onClick={() => answerQuestion(currentQuestion.id, option.id, option.direction)}
           >
             <div className={styles.optionContent}>
               <span>{option.text}</span>

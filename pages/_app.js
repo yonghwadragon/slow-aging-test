@@ -4,6 +4,11 @@ import { useRouter } from "next/router";
 import { GameProvider } from "@/context/GameContext";
 import "@/styles/globals.css";
 
+// ✅ Swiper 글로벌 스타일 추가
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 

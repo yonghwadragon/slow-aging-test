@@ -26,6 +26,7 @@ const ReelsSlider = () => (
   <div className={styles.sliderWrapper}>
     <h3 className={styles.title}>🔥 인기 릴스 영상</h3>
     <Swiper
+      style={{ width: '100%' }}
       spaceBetween={18}
       slidesPerView={1}
       loop={false}

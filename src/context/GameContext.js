@@ -20,7 +20,8 @@ export function GameProvider({ children }) {
   };
 
   const answerQuestion = (questionId, point, direction) => {
-    setScore(prev => prev + point);
+    const updatedScore = score + point;
+    setScore(updatedScore);
     setCharacterPosition(direction);
 
     setTimeout(() => {
@@ -29,7 +30,7 @@ export function GameProvider({ children }) {
         setCharacterPosition('center');
       } else {
         setGameState('complete');
-        router.push(`/result?score=${score + point}`);
+        router.push(`/result?score=${updatedScore}`);
       }
     }, 800);
   };

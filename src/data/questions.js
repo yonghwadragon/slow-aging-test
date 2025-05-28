@@ -2,7 +2,7 @@
 
 export const questions = [
   {
-    id: 1,
+    id: "1",
     text: "요즘 밥 잘 챙겨 먹고 있어?",
     options: [
       { id: "no", text: "아니, 자주 거르거나 대충 먹어", direction: "left" },
@@ -11,7 +11,7 @@ export const questions = [
     voiceText: "요즘 밥 잘 챙겨 먹고 있어? 오른쪽은 응, 왼쪽은 아니야를 눌러줘."
   },
   {
-    id: 2,
+    id: "2",
     text: "요즘 관절이나 뼈에 관심 있어?",
     options: [
       { id: "yes", text: "응! 건강 챙기고 싶어", direction: "left" },
@@ -20,7 +20,7 @@ export const questions = [
     voiceText: "요즘 관절이나 뼈에 관심 있어? 왼쪽은 응, 오른쪽은 아니야를 눌러줘."
   },
   {
-    id: 3,
+    id: "3",
     text: "너 혹시... 아이 입맛이야?",
     options: [
       { id: "yes", text: "ㅋㅋ 맞아! 편식 좀 해", direction: "left" },
@@ -29,7 +29,7 @@ export const questions = [
     voiceText: "너 혹시… 아이 입맛이야? 왼쪽은 맞아, 오른쪽은 아니야를 눌러줘."
   },
   {
-    id: 4,
+    id: "4",
     text: "기력 떨어진 거 같지 않아?",
     options: [
       { id: "yes", text: "맞아, 요즘 좀 힘들어", direction: "left" },
@@ -38,7 +38,7 @@ export const questions = [
     voiceText: "기력 떨어진 거 같지 않아? 왼쪽은 맞아, 오른쪽은 아니야를 눌러줘."
   },
   {
-    id: 5,
+    id: "5",
     text: "혹시 요즘 다이어트 중이야?",
     options: [
       { id: "yes", text: "응! 식단도 조절하고 있어", direction: "left" },
@@ -115,11 +115,14 @@ export const calculateResult = (answers) => {
     senior: 0
   };
 
-  if (answers[1] === "no") score.energy++;
-  if (answers[2] === "yes") score.joint++;
-  if (answers[3] === "yes") score.kids++;
-  if (answers[4] === "yes") score.senior++;
-  if (answers[5] === "yes") score.slim++;
+  // 문자열 ID로 접근
+  if (answers["1"] === "no") score.energy++;
+  if (answers["2"] === "yes") score.joint++;
+  if (answers["3"] === "yes") score.kids++;
+  if (answers["4"] === "yes") score.senior++;
+  if (answers["5"] === "yes") score.slim++;
 
-  return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+  const resultType = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+
+  return resultType;
 };

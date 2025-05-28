@@ -2,6 +2,7 @@
 import { createContext, useContext, useState } from 'react';
 import { questions } from '@/data/questions';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const GameContext = createContext();
 
@@ -11,6 +12,16 @@ export function GameProvider({ children }) {
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState('idle');
   const [characterPosition, setCharacterPosition] = useState('center');
+
+  // ✅ 경로가 /test일 때마다 상태 초기화
+  useEffect(() => {
+    if (router.pathname === '/test') {
+      setCurrentQuestionIndex(0);
+      setScore(0);
+      setGameState('playing');
+      setCharacterPosition('center');
+    }
+  }, [router.pathname]);
 
   const startGame = () => {
     setCurrentQuestionIndex(0);
@@ -37,11 +48,12 @@ export function GameProvider({ children }) {
 
   const value = {
     currentQuestionIndex,
-    currentQuestion: questions[currentQuestionIndex],
+    currentQuestion: questions?.[currentQuestionIndex] || null,
     gameState,
     characterPosition,
     startGame,
-    answerQuestion
+    answerQuestion,
+    score
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

@@ -19,7 +19,7 @@ const GameScreen = () => {
     }
   }, [gameState, startGame]);
 
-  if (gameState !== 'playing' || !currentQuestion) {
+  if (gameState !== 'playing') {
     return (
       <div className={styles.loadingScreen}>
         <div className={styles.loadingSpinner}></div>
@@ -27,7 +27,7 @@ const GameScreen = () => {
       </div>
     );
   }
-
+  if (!currentQuestion) return null;
   return (
     <div className={styles.gameScreen}>
       <div className={styles.progressBar}>

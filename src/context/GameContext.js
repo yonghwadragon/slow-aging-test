@@ -30,8 +30,8 @@ export function GameProvider({ children }) {
     setCharacterPosition('center');
   };
 
-  const answerQuestion = (questionId, point, direction) => {
-    const updatedScore = score + point;
+  const answerQuestion = (questionId, selectedPoint, direction) => {
+    const updatedScore = score + selectedPoint;
     setScore(updatedScore);
     setCharacterPosition(direction);
 

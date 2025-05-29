@@ -91,7 +91,7 @@ export default function Home() {
       />
       <meta 
         name="twitter:image" 
-        content="https://slow-aging-test.vercel.app/images/사슴이.png" 
+        content="https://slow-aging-test.vercel.app/images/questions/q5.png" 
       />
 
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />

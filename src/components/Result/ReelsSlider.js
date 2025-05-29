@@ -39,7 +39,15 @@ const ReelsSlider = () => (
       {reels.map((reel, idx) => (
         <SwiperSlide key={idx}>
           <div className={styles.reelCard}>
-            <a href={reel.url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={reel.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                const sound = new Audio('/audio/click.mp3');
+                sound.play().catch(() => {});
+              }}
+            >
               <img src={reel.thumbnail} alt={reel.title} className={styles.thumbnail} />
               <div className={styles.reelTitle}>{reel.title}</div>
               <div className={styles.playIcon}>▶</div>

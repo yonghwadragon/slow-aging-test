@@ -57,7 +57,7 @@ export const questions = [
   },
   {
     id: "7",
-    text: "건강을 위해 영양제 같은 거 챙겨 먹고 있어? 💊",
+    text: "건강을 위해서 영양제 같은 거 챙겨 먹고 있어? 💊",
     options: [
       { id: "a", text: "매일 꼬박꼬박 챙겨 먹지! 😊", point: 5, styleType: "positive" },
       { id: "b", text: "생각날 때 가끔씩? 😌", point: 3, styleType: "neutral" },

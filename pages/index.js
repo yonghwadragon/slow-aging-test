@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import styles from "@/styles/HomePage.module.css";
+import CharacterTalking from "@/components/Character/CharacterTalking";
 
 export default function Home() {
-  const fullText = " 나랑 테스트 시작하자!\n테스트 시작 버튼을 눌러! ";
+  const fullText = "나랑 테스트 시작하자!\n테스트 시작 버튼을 눌러!";
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
@@ -14,7 +14,7 @@ export default function Home() {
   const introAudio = useRef(null);
   const clickAudio = useRef(null);
 
-  // 로딩 끝나면 콘텐츠 노출
+  // 로딩 후 콘텐츠 노출
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -23,25 +23,32 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  //  클릭 이벤트 내부에서 오디오, 타이핑 실행
+  // 버튼 클릭 시 실행
   const handleStartClick = () => {
     if (hasPlayed) return;
     setHasPlayed(true);
 
-    //  클릭 시 오디오 실행
     clickAudio.current?.play?.().catch((e) => console.warn("click 재생 실패", e));
     introAudio.current?.play?.().catch((e) => console.warn("intro 재생 실패", e));
 
-    //  타이핑 애니메이션
     let idx = 0;
+    const chars = [...fullText]; // 한글 포함 문자열 분리
     setDisplayed("");
+
     const typeInterval = setInterval(() => {
-      if (idx >= fullText.length) {
+      if (idx >= chars.length) {
         clearInterval(typeInterval);
         setReady(true);
         return;
       }
-      setDisplayed((prev) => prev + fullText.charAt(idx));
+
+      const char = chars[idx];
+      setDisplayed((prev) => {
+        if (char === "\n") return prev + "\n";
+        if (char === " ") return prev + "\u00a0"; // 공백 깨짐 방지
+        return prev + char;
+      });
+
       idx++;
     }, 120);
   };
@@ -54,7 +61,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/* 사운드 리소스 */}
+      {/* 오디오 */}
       <audio ref={introAudio} src="/audio/사슴이_intro.mp3" preload="auto" playsInline />
       <audio ref={clickAudio} src="/audio/click.mp3" preload="auto" playsInline />
 
@@ -82,44 +89,39 @@ export default function Home() {
             )}
 
             <div className={styles.charBubbleWrapper}>
-              <Image
-                src="/images/사슴이.png"
-                alt="사슴이"
-                width={160}
-                height={160}
-                priority
-              />
+              <CharacterTalking isTalking={!ready && hasPlayed} />
               <div className={styles.bubble}>
-                {displayed}
+                {displayed.split('\n').map((line, idx) => (
+                  <span key={idx}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
                 <div className={styles.tail} />
               </div>
             </div>
 
-            <h1 className={styles.title}>🦌 나의 노화 속도는?</h1>
+            <h1 className={styles.title}>🧬 나의 슬로우에이징 지수는 몇 점?</h1>
             <p className={styles.subtitle}>
-              간단한 테스트를 통해<br />지금 내 몸은 몇 살인지 점수로 확인해봐!
+              몇 점일까...? 긴장돼!<br />테스트 시작해보자!
             </p>
 
-{ready ? (
-  <Link href="/test">
-    <button
-      className={styles.startButton}
-      onMouseDown={() => {
-        clickAudio.current?.play?.().catch(e => console.warn("click 재생 실패", e));
-      }}
-    >
-      🚀 테스트 시작 !!
-    </button>
-  </Link>
-) : (
-  <button
-    className={styles.startButton}
-    onClick={handleStartClick}
-    disabled
-  >
-    🚀 테스트 시작 !!
-  </button>
-)}
+            {ready ? (
+              <Link href="/test">
+                <button
+                  className={styles.startButton}
+                  onMouseDown={() => {
+                    clickAudio.current?.play?.().catch(e => console.warn("click 재생 실패", e));
+                  }}
+                >
+                  🚀 테스트 시작 !!
+                </button>
+              </Link>
+            ) : (
+              <button className={styles.startButton} onClick={handleStartClick} disabled>
+                🚀 테스트 시작 !!
+              </button>
+            )}
           </>
         )}
       </main>

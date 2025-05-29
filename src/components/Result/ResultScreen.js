@@ -13,7 +13,7 @@ const ResultScreen = () => {
   const score = parseInt(router.query.score, 10);
 
   const grade = getScoreGrade(score);
-  const { type, message } = grade;
+  const { type, message, goodPoints, improvePoints, recommendedFoods, supplementaryNote } = grade;
 
   const handleRestart = () => {
     router.push('/');
@@ -36,6 +36,22 @@ const ResultScreen = () => {
         </h2>
         <h3 style={{ fontSize: '1.6rem', margin: '0.2em 0' }}>{type}</h3>
         <p style={{ fontSize: '1rem', color: '#555', marginBottom: '1.2em' }}>{message}</p>
+        <div className={styles.analysisBox}>
+          <h4>👍 잘하고 있는 점</h4>
+          <ul>{goodPoints.map((point, idx) => <li key={idx}>{point}</li>)}</ul>
+
+          <h4>⚡ 개선할 점</h4>
+          <ul>{improvePoints.map((point, idx) => <li key={idx}>{point}</li>)}</ul>
+
+          <h4>🥗 추천 음식</h4>
+          <ul>
+            {recommendedFoods.map((food, idx) => (
+              <li key={idx}>{food.name} - {food.reason}</li>
+            ))}
+          </ul>
+
+          <p><i>{supplementaryNote}</i></p>
+        </div>
       </div>
 
       {/* 결과가 이미지, 제품 추천, 릴스 등과 매칭되지 않는다면 이 영역은 비워두거나 다른 디자인으로 대체 */}

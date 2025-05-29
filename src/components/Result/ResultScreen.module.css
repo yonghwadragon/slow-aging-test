@@ -32,3 +32,38 @@
     padding: 12px 0 32px 0;
   }
 }
+
+.analysisBox {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 20px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.analysisBox h4 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  margin-top: 20px;
+}
+
+.analysisBox ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.analysisBox li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+.analysisBox p {
+  margin-top: 16px;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #666;
+}

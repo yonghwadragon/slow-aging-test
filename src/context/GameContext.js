@@ -30,21 +30,22 @@ export function GameProvider({ children }) {
     setCharacterPosition('center');
   };
 
-  const answerQuestion = (questionId, selectedPoint, direction) => {
-    const updatedScore = score + selectedPoint;
-    setScore(updatedScore);
-    setCharacterPosition(direction);
+const answerQuestion = (questionId, point) => {
+  const updatedScore = score + point;
+  setScore(updatedScore);
+  setCharacterPosition('center');
 
-    setTimeout(() => {
-      if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex(prev => prev + 1);
-        setCharacterPosition('center');
-      } else {
-        setGameState('complete');
-        router.push(`/result?score=${updatedScore}`);
-      }
-    }, 800);
-  };
+  setTimeout(() => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1);
+      setCharacterPosition('center');
+    } else {
+      setGameState('complete');
+      router.push(`/result?score=${updatedScore}`);
+    }
+  }, 800);
+};
+
 
   const value = {
     currentQuestionIndex,

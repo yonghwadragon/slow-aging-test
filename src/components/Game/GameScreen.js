@@ -48,8 +48,8 @@ const GameScreen = () => {
         {currentQuestion.options.map((option, index) => (
           <div
             key={index}
-            className={styles.option}
-            onClick={() => answerQuestion(currentQuestion.id, option.point, option.direction)}
+            className={`${styles.option} ${styles[option.styleType]}`} 
+            onClick={() => answerQuestion(currentQuestion.id, option.point)} 
           >
             <div className={styles.optionContent}>
               <span>{option.text}</span>
@@ -57,19 +57,6 @@ const GameScreen = () => {
           </div>
         ))}
       </div>
-
-      {currentQuestion.options.length === 2 && (
-        <div className={styles.directionGuide}>
-          <div className={styles.direction}>
-            <span className={styles.arrow}>←</span>
-            <span>{currentQuestion.options[0].text}</span>
-          </div>
-          <div className={styles.direction}>
-            <span>{currentQuestion.options[1].text}</span>
-            <span className={styles.arrow}>→</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

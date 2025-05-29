@@ -55,11 +55,48 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>나의 노화 속도는?</title>
-        <meta name="description" content="게임형 설문을 통해 건강 제품을 추천합니다" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+    <Head>
+      <title>저속노화 레벨 테스트 | 슬로우에이징 지수 확인하기</title>
+      
+      <meta 
+        name="description" 
+        content="간단한 슬로우에이징 테스트로 내 몸의 노화 속도를 점수로 진단하세요. 나에게 맞는 건강 루틴도 함께 알아보세요." 
+      />
+      
+      <meta 
+        name="keywords" 
+        content="슬로우에이징, 저속노화, 노화 속도 진단, 건강 루틴 추천, 건강 테스트, 몸나이 측정, 노화 방지 방법" 
+      />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="저속노화 레벨 테스트 | 슬로우에이징 지수 확인하기" />
+      <meta 
+        property="og:description" 
+        content="지금 내 몸의 슬로우에이징 점수는 몇 점일까요? 쉽고 재미있는 테스트로 노화 속도를 체크해보세요!" 
+      />
+      <meta 
+        property="og:image" 
+        content="https://deer-type-test.vercel.app/images/사슴이.png" 
+      />
+      <meta 
+        property="og:url" 
+        content="https://deer-type-test.vercel.app" 
+      />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="저속노화 레벨 테스트 | 슬로우에이징 지수 확인하기" />
+      <meta 
+        name="twitter:description" 
+        content="슬로우에이징 테스트로 나의 노화 속도를 점수로 진단하고, 건강 루틴을 점검하세요." 
+      />
+      <meta 
+        name="twitter:image" 
+        content="https://deer-type-test.vercel.app/images/사슴이.png" 
+      />
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      <link rel="icon" href="/favicon_antlers_pair.ico" />
+    </Head>
 
       {/* 오디오 */}
       <audio ref={introAudio} src="/audio/사슴이_intro.mp3" preload="auto" playsInline />

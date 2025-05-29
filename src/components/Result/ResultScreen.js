@@ -33,7 +33,7 @@ const ResultScreen = () => {
     <div className={styles.resultContainer}>
       <div style={{ textAlign: 'center', marginBottom: '16px' }}>
         <h2 style={{ fontSize: '2.2rem', color: '#13b887', marginBottom: '0.4em' }}>
-          🧪 당신의 노화 점수는 {grade.score}점!
+          🧬 나의 슬로우에이징 레벨은 {grade.score}점!
         </h2>
         <h3 style={{ fontSize: '1.6rem', margin: '0.2em 0' }}>{type}</h3>
         <p style={{ fontSize: '1rem', color: '#555', marginBottom: '1.2em' }}>{message}</p>

@@ -23,8 +23,7 @@ const ShareButtons = ({ resultType, score }) => {
     if (navigator.share) {
       navigator.share({
         title: "지친 유형 테스트 결과",
-        text: shareText,
-        url: SITE_URL,
+        text: shareText
       });
     } else {
       alert('이 브라우저는 공유 기능을 지원하지 않아요.');

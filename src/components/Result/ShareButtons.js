@@ -2,14 +2,17 @@
 import React from 'react';
 import styles from './ShareButtons.module.css';
 
-const SITE_URL = "https://deer-type-test.vercel.app/";
+// 현재 도메인 기반으로 링크 생성 (클라이언트 측)
+const SITE_URL = typeof window !== 'undefined' ? window.location.origin : 'https://slow-aging-test.vercel.app/';
 
-const ShareButtons = ({ resultType }) => {
-  // 이미지 공유(캡처)는 추후 적용, 지금은 링크 중심
+const ShareButtons = ({ resultType, score }) => {
+  const shareText = `🧪 나의 노화 점수는 ${score}점, 유형은 "${resultType}"이래요!\n당신도 지금 테스트해보세요 👉 ${SITE_URL}`;
+
+  // 클립보드에 복사
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(SITE_URL);
-      alert('링크가 복사되었어요! 친구에게 공유해보세요!');
+      await navigator.clipboard.writeText(shareText);
+      alert('링크와 결과가 복사되었어요! 친구에게 공유해보세요!');
     } catch (err) {
       alert('복사에 실패했어요 😢');
     }
@@ -20,8 +23,8 @@ const ShareButtons = ({ resultType }) => {
     if (navigator.share) {
       navigator.share({
         title: "지친 유형 테스트 결과",
-        text: "나의 유형을 공유해요! 🦌",
-        url: SITE_URL
+        text: shareText,
+        url: SITE_URL,
       });
     } else {
       alert('이 브라우저는 공유 기능을 지원하지 않아요.');
@@ -42,7 +45,7 @@ const ShareButtons = ({ resultType }) => {
         >
           📷 인스타 보기
         </a>
-        {/* 카카오톡 공유는 추후 추가 */}
+        {/* 카카오톡 공유는 추후 적용 */}
       </div>
     </div>
   );

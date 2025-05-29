@@ -7,6 +7,7 @@ import ShareButtons from './ShareButtons';
 import ReelsSlider from './ReelsSlider';
 import styles from './ResultScreen.module.css';
 import ResultImageCard from './ResultImageCard';
+import ClickSoundButton from '../common/ClickSoundButton';
 
 const ResultScreen = () => {
   const router = useRouter();
@@ -60,9 +61,9 @@ const ResultScreen = () => {
       <ShareButtons resultType={type} score={grade.score} />
       <ReelsSlider />
 
-      <button className={styles.restartButton} onClick={handleRestart}>
+      <ClickSoundButton className={styles.restartButton} onClick={handleRestart}>
         🔁 처음부터 다시 하기
-      </button>
+      </ClickSoundButton>
     </div>
   );
 };

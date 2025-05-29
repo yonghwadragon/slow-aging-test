@@ -1,5 +1,6 @@
 // src/components/Game/GameScreen.js
 import React, { useEffect } from 'react';
+import ClickSoundButton from '../common/ClickSoundButton';
 import { useGame } from '@/context/GameContext';
 import styles from './GameScreen.module.css';
 import { questions } from '@/data/questions';
@@ -57,15 +58,15 @@ const GameScreen = () => {
 
       <div className={styles.optionsContainer}>
         {currentQuestion.options.map((option, index) => (
-          <div
-            key={index}
-            className={`${styles.option} ${styles[option.styleType]}`} 
-            onClick={() => answerQuestion(currentQuestion.id, option.point)} 
-          >
-            <div className={styles.optionContent}>
-              <span>{option.text}</span>
-            </div>
-          </div>
+    <ClickSoundButton
+      key={index}
+      className={`${styles.option} ${styles[option.styleType]}`} 
+      onClick={() => answerQuestion(currentQuestion.id, option.point)}
+    >
+      <div className={styles.optionContent}>
+        <span>{option.text}</span>
+      </div>
+    </ClickSoundButton>
         ))}
       </div>
     </div>

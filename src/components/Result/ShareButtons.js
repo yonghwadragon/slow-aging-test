@@ -1,6 +1,7 @@
 // src/components/Result/ShareButtons.js
 import React from 'react';
 import styles from './ShareButtons.module.css';
+import ClickSoundButton from '../common/ClickSoundButton';
 
 // 현재 도메인 기반으로 링크 생성 (클라이언트 측)
 const SITE_URL = typeof window !== 'undefined' ? window.location.origin : 'https://slow-aging-test.vercel.app/';
@@ -34,16 +35,20 @@ const ShareButtons = ({ resultType, score }) => {
     <div className={styles.shareWrapper}>
       <p className={styles.shareTitle}>📢 내 결과 공유하기</p>
       <div className={styles.buttonGroup}>
-        <button onClick={handleCopy} className={styles.copyButton}>🔗 링크 복사</button>
-        <button onClick={handleNativeShare} className={styles.shareButton}>📱 바로 공유</button>
-        <a
-          href="https://www.instagram.com/handong_lab_official/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.instaButton}
-        >
-          📷 인스타 보기
-        </a>
+        <ClickSoundButton onClick={handleCopy} className={styles.copyButton}>🔗 링크 복사</ClickSoundButton>
+        <ClickSoundButton onClick={handleNativeShare} className={styles.shareButton}>📱 바로 공유</ClickSoundButton>
+         <a
+           href="https://www.instagram.com/handong_lab_official/"
+           target="_blank"
+           rel="noopener noreferrer"
+           className={styles.instaButton}
+           onClick={() => {
+             const sound = new Audio('/audio/click.mp3');
+             sound.play().catch(() => {});
+           }}
+         >
+           📷 인스타 보기
+         </a>
         {/* 카카오톡 공유는 추후 적용 */}
       </div>
     </div>

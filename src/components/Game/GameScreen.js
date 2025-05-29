@@ -1,9 +1,9 @@
 // src/components/Game/GameScreen.js
 import React, { useEffect } from 'react';
 import { useGame } from '@/context/GameContext';
-import Character from '../Character/Character';
 import styles from './GameScreen.module.css';
 import { questions } from '@/data/questions';
+import Image from 'next/image';
 
 const GameScreen = () => {
   const {
@@ -29,6 +29,9 @@ const GameScreen = () => {
     );
   }
   if (!currentQuestion) return null;
+
+  const imageSrc = `/images/questions/q${currentQuestionIndex + 1}.png`;
+
   return (
     <div className={styles.gameScreen}>
       <div className={styles.progressBar}>
@@ -42,7 +45,15 @@ const GameScreen = () => {
         <h2 className={styles.questionText}>{currentQuestion.text}</h2>
       </div>
 
-      <Character key={currentQuestion.id} />
+     <div className={styles.questionImageWrapper}>
+       <Image
+         src={imageSrc}
+         alt={`질문 이미지 ${currentQuestionIndex + 1}`}
+         width={240}
+         height={240}
+         priority
+       />
+     </div>
 
       <div className={styles.optionsContainer}>
         {currentQuestion.options.map((option, index) => (

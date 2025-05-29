@@ -76,11 +76,11 @@ export default function Home() {
       />
       <meta 
         property="og:image" 
-        content="https://deer-type-test.vercel.app/images/사슴이.png" 
+        content="https://slow-aging-test.vercel.app/images/questions/q5.png" 
       />
       <meta 
         property="og:url" 
-        content="https://deer-type-test.vercel.app" 
+        content="https://slow-aging-test.vercel.app/" 
       />
 
       <meta name="twitter:card" content="summary_large_image" />
@@ -91,7 +91,7 @@ export default function Home() {
       />
       <meta 
         name="twitter:image" 
-        content="https://deer-type-test.vercel.app/images/사슴이.png" 
+        content="https://slow-aging-test.vercel.app/images/사슴이.png" 
       />
 
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />

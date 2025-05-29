@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useGame } from '@/context/GameContext';
 import Character from '../Character/Character';
 import styles from './GameScreen.module.css';
+import { questions } from '@/data/questions';
 
 const GameScreen = () => {
   const {
@@ -31,10 +32,10 @@ const GameScreen = () => {
   return (
     <div className={styles.gameScreen}>
       <div className={styles.progressBar}>
-        <div
-          className={styles.progress}
-          style={{ width: `${((currentQuestionIndex + 1) / 5) * 100}%` }}
-        ></div>
+       <div
+         className={styles.progress}
+         style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
+       ></div>
       </div>
 
       <div className={styles.questionContainer}>

@@ -84,7 +84,7 @@ export const getScoreGrade = (score) => {
       ],
       recommendedFoods: [
         { name: "아보카도 🥑", reason: "건강한 지방과 비타민 공급" },
-        { name: "블루베리 🫐", reason: "항산화 작용, 피로 회복" },
+        { name: "블루베리 🔵", reason: "항산화 작용, 피로 회복" },
         { name: "아몬드 🥜", reason: "기억력 향상, 활력 유지" }
       ],
       supplementaryNote: "녹용은 지금의 건강 루틴을 오래 유지하는 데 도움을 주는 부드러운 보조제가 될 수 있어요."

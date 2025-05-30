@@ -2,7 +2,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { getScoreGrade } from '@/data/questions';
-import ProductCard from './ProductCard';
+import { useEffect, useRef } from 'react';
 import ShareButtons from './ShareButtons';
 import ReelsSlider from './ReelsSlider';
 import styles from './ResultScreen.module.css';
@@ -12,6 +12,16 @@ import ClickSoundButton from '../common/ClickSoundButton';
 const ResultScreen = () => {
   const router = useRouter();
   const score = parseInt(router.query.score, 10);
+
+  const resultAudioRef = useRef(null);
+
+  useEffect(() => {
+ if (resultAudioRef.current) {
+    resultAudioRef.current.play().catch((e) =>
+      console.warn("결과 사운드 재생 실패", e)
+    );
+  }
+}, []);
 
   const grade = getScoreGrade(score);
   const { type, message, goodPoints, improvePoints, recommendedFoods, supplementaryNote } = grade;
@@ -31,6 +41,7 @@ const ResultScreen = () => {
 
   return (
     <div className={styles.resultContainer}>
+      <audio ref={resultAudioRef} src="/audio/result-fanfare.mp3" preload="auto" />
       <div style={{ textAlign: 'center', marginBottom: '16px' }}>
         <h2 style={{ fontSize: '2.2rem', color: '#13b887', marginBottom: '0.4em' }}>
           🧬 나의 슬로우에이징 레벨은 {grade.score}점!

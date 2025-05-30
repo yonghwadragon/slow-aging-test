@@ -3,7 +3,7 @@ import React from 'react';
 
 const clickSound = typeof Audio !== 'undefined' ? new Audio('/audio/click.mp3') : null;
 
-const ClickSoundButton = ({ onClick, children, ...props }) => {
+const ClickSoundButton = ({ onClick, children, disabled, ...props }) => {
   const handleClick = (e) => {
     if (clickSound) {
       clickSound.currentTime = 0; // 매번 처음부터 재생
@@ -13,7 +13,12 @@ const ClickSoundButton = ({ onClick, children, ...props }) => {
   };
 
   return (
-    <button onClick={handleClick} {...props}>
+    <button
+      onClick={handleClick}
+      disabled={disabled}
+      style={{ cursor: disabled ? 'not-allowed' : 'pointer' }}
+      {...props}
+    >
       {children}
     </button>
   );

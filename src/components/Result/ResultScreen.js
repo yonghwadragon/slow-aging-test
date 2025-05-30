@@ -36,6 +36,7 @@ const ResultScreen = () => {
           🧬 나의 슬로우에이징 레벨은 {grade.score}점!
         </h2>
         <h3 style={{ fontSize: '1.6rem', margin: '0.2em 0' }}>{type}</h3>
+        <ResultImageCard resultType={grade.imageFileName} />
         <p style={{ fontSize: '1rem', color: '#555', marginBottom: '1.2em' }}>{message}</p>
         <div className={styles.analysisBox}>
           <h4>👍 잘하고 있는 점</h4>
@@ -56,7 +57,6 @@ const ResultScreen = () => {
       </div>
 
       {/* 결과가 이미지, 제품 추천, 릴스 등과 매칭되지 않는다면 이 영역은 비워두거나 다른 디자인으로 대체 */}
-      {/* <ResultImageCard resultData={resultData} resultType={resultType} /> */}
       {/* <ProductCard product={resultData.recommendedProduct} resultType={resultType} /> */}
       <ShareButtons resultType={type} score={grade.score} />
       <ReelsSlider />

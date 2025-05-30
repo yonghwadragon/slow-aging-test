@@ -71,7 +71,8 @@ export const getScoreGrade = (score) => {
 
   if (scaled >= 85) {
     return {
-      type: "🦌 슬로우에이징 만렙형",
+      type: "🦌 꽃사슴형",
+      imageFileName: "flowerdeer.png",
       score: scaled,
       message: `균형 잡힌 일상으로 완벽한 건강 루틴을 유지 중이에요! 
 지금의 습관을 계속 지켜나가는 것이 가장 중요해요.`,
@@ -91,7 +92,8 @@ export const getScoreGrade = (score) => {
     };
   } else if (scaled >= 70) {
     return {
-      type: "🐯 근육중심형",
+      type: "🐯 호랑이형",
+      imageFileName: "tiger.png",
       score: scaled,
       message: `운동을 잘 챙기는 당신, 근육 관리엔 최고예요! 다만 수면과 식사 규칙성도 놓치지 말아야 합니다.`,
       goodPoints: [
@@ -111,7 +113,8 @@ export const getScoreGrade = (score) => {
     };
   } else if (scaled >= 55) {
     return {
-      type: "🐻 회복 주의형",
+      type: "🐻 곰돌이형",
+      imageFileName: "bear.png",
       score: scaled,
       message: `요즘 피로가 쌓여있어 휴식과 회복에 조금 더 신경 쓸 때입니다. 수면과 스트레스 관리가 중요해요.`,
       goodPoints: [
@@ -130,7 +133,8 @@ export const getScoreGrade = (score) => {
     };
   } else if (scaled >= 40) {
     return {
-      type: "🐿️ 루틴 시도형",
+      type: "🐿️ 다람쥐형",
+      imageFileName: "squirrel.png",
       score: scaled,
       message: `건강을 위해 노력하고 있지만 아직 습관이 자리 잡지 않았어요. 작은 루틴부터 천천히 시작해보세요.`,
       goodPoints: [
@@ -149,7 +153,8 @@ export const getScoreGrade = (score) => {
     };
   } else {
     return {
-      type: "🐣 입문자형",
+      type: "🐣 병아리형",
+      imageFileName: "chick.png",
       score: scaled,
       message: `건강 습관이 아직 익숙하지 않다면 부담 없는 작은 실천부터 시작해봐요. 가벼운 시도가 중요해요.`,
       goodPoints: [

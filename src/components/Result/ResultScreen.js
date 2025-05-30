@@ -75,6 +75,14 @@ const ResultScreen = () => {
       <ClickSoundButton className={styles.restartButton} onClick={handleRestart}>
         🔁 처음부터 다시 하기
       </ClickSoundButton>
+      {/* ✅ 크레딧 추가 시작 */}
+      <div className={styles.credits}>
+        🔊 Sound Effects:<br />
+        "Blop" by <strong>Mark DiAngelo</strong> – <a href="http://soundbible.com/2067-Blop.html" target="_blank" rel="noopener noreferrer">CC BY 3.0</a><br />
+        "Jump Start" by <strong>plasterbrain</strong> – <a href="https://freesound.org/people/plasterbrain/sounds/397353/" target="_blank" rel="noopener noreferrer">CC0</a><br />
+        Provided via <a href="https://www.mewpot.com" target="_blank" rel="noopener noreferrer">Mewpot</a>
+      </div>
+      {/* ✅ 크레딧 추가 끝 */}
     </div>
   );
 };

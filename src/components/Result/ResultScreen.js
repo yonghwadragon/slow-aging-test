@@ -43,7 +43,7 @@ const ResultScreen = () => {
     <div className={styles.resultContainer}>
       <audio ref={resultAudioRef} src="/audio/result-fanfare.mp3" preload="auto" />
       <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-        <h2 style={{ fontSize: '2.2rem', color: '#13b887', marginBottom: '0.4em' }}>
+        <h2 className={styles.resultTitleLine}>
           🧬 나의 슬로우에이징 레벨은 {grade.score}점!
         </h2>
         <h3 style={{ fontSize: '1.6rem', margin: '0.2em 0' }}>{type}</h3>

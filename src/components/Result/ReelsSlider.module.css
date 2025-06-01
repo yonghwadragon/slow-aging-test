@@ -7,6 +7,14 @@
   padding: 0 16px 18px 16px; 
 }
 
+.sliderWrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   padding: 0 8px;
+}
+
 .title {
   font-size: 1.08rem;
   margin-bottom: 16px;

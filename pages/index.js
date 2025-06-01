@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import styles from "@/styles/HomePage.module.css";
 import CharacterTalking from "@/components/Character/CharacterTalking";
+import { db } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function Home() {
   const fullText = "나랑 테스트 시작하자!\n테스트 시작 버튼을 눌러!";
@@ -13,6 +15,7 @@ export default function Home() {
   const [ready, setReady] = useState(false);
   const introAudio = useRef(null);
   const clickAudio = useRef(null);
+  const [userCount, setUserCount] = useState(null);
 
   // 로딩 후 콘텐츠 노출
   useEffect(() => {
@@ -21,6 +24,21 @@ export default function Home() {
       setShowContent(true);
     }, 1500);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Firebase에서 방문 수 불러오기
+  useEffect(() => {
+    const fetchVisitCount = async () => {
+      try {
+        const snapshot = await getDoc(doc(db, "metrics", "resultViews"));
+        if (snapshot.exists()) {
+          setUserCount(snapshot.data().count);
+        }
+      } catch (e) {
+        console.warn("방문자 수 로딩 실패", e);
+      }
+    };
+    fetchVisitCount();
   }, []);
 
   // 버튼 클릭 시 실행
@@ -142,7 +160,12 @@ export default function Home() {
             <p className={styles.subtitle}>
               몇 점일까...? 긴장돼!<br />테스트 시작해보자!
             </p>
-
+              {typeof userCount === "number" && (
+                <p className={styles.userCountBox}>
+                  ✨ 벌써 <span className={styles.userCountHighlight}>{userCount}명</span>이 저속노화 점수를 확인했어!
+                  {"\n"}이제 당신 차례!
+                </p>
+              )}
             {ready ? (
               <Link href="/test">
                 <button

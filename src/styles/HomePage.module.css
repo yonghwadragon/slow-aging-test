@@ -98,6 +98,36 @@
   transform: scale(1.1);
 }
 
+.userCountBox {
+  text-align: center;
+  color: #16897a;
+  font-size: clamp(0.9rem, 3.3vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.6;
+  padding: 12px 18px;
+  border-radius: 14px;
+  display: inline-block;
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+  white-space: pre-line;
+  word-break: keep-all;
+  max-width: 90vw;
+}
+
+.userCountHighlight {
+ color: #045c47;
+ font-size: 1.2rem;
+ font-weight: 700;
+ background: linear-gradient(90deg, #b2f2dc, #c7fce8);
+ padding: 2px 6px;
+ border-radius: 6px;
+}
+
+.userCountNumber {
+  color: #0c5e4a;
+  font-size: 1.25rem;
+}
+
 @keyframes pulse {
   0%,
   100% {

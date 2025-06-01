@@ -114,7 +114,13 @@
     left: 50%;
     transform: translateX(-50%);
     max-width: 90vw;
-    word-break: keep-all;
+    font-size: 1.2rem;
+    padding: 10px 14px;          
+    line-height: 1.5;            
+    white-space: nowrap;
+    word-break: keep-all;     
+    overflow-wrap: break-word;     
+    text-align: center;          
   }
 
   .bubble .tail {
@@ -122,10 +128,17 @@
   }
 
   .title {
-    font-size: 1.8rem;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    text-align: center;
+    white-space: normal;
+    word-break: keep-all;
+    line-height: 1.4;
   }
 
   .subtitle {
     font-size: 0.95rem;
+    white-space: normal;      
+    word-break: break-word;
+    line-height: 1.8;
   }
 }

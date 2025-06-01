@@ -66,9 +66,7 @@ const ResultScreen = () => {
           <p><i>{supplementaryNote}</i></p>
         </div>
       </div>
-
-      {/* 결과가 이미지, 제품 추천, 릴스 등과 매칭되지 않는다면 이 영역은 비워두거나 다른 디자인으로 대체 */}
-      {/* <ProductCard product={resultData.recommendedProduct} resultType={resultType} /> */}
+      
       <ShareButtons resultType={type} score={grade.score} />
       <ReelsSlider />
 

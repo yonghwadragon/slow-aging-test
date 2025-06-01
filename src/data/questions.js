@@ -5,7 +5,7 @@ export const questions = [
     id: "1",
     text: "아침에 눈을 떴을 때 내 모습은? 🌞",
     options: [
-      { id: "a", text: "쌩쌩해! 오늘도 에너지 가득!", point: 5, styleType: "positive" },
+      { id: "a", text: "쌩쌩해! 오늘도 에너지 가득! 🌞", point: 5, styleType: "positive" },
       { id: "c", text: "오늘 하루 벌써부터 걱정이야 😵‍💫", point: 1, styleType: "negative" },
       { id: "b", text: "조금만 더... 알람이 미워 🥱", point: 3, styleType: "neutral" }
     ]
@@ -14,7 +14,7 @@ export const questions = [
     id: "2",
     text: "운동은 얼마나 자주 하는 편이야? 🏃‍♂️",
     options: [
-      { id: "a", text: "꾸준히 하고 있어! (일주일에 3번 이상 💪)", point: 5, styleType: "positive" },
+      { id: "a", text: "꾸준히 하고 있어! 💪", point: 5, styleType: "positive" },
       { id: "c", text: "운동은 나랑 안 친해 😅", point: 1, styleType: "negative" },
       { id: "b", text: "가끔? 마음 내키면 하는 정도 🤔", point: 3, styleType: "neutral" }
     ]

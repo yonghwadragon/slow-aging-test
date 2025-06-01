@@ -3,10 +3,15 @@
   --foreground: #171717;
 }
 
+/* ✅ 다크모드 환경에서도 밝은 테마 강제 적용 */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    color-scheme: light;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
   }
 }
 
@@ -33,12 +38,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 @font-face {

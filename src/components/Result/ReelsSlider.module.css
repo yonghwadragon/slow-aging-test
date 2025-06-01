@@ -78,3 +78,30 @@
 .reelCard:hover .playIcon {
   background: #1dd197;
 }
+
+.sliderWrapper::before, .sliderWrapper::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   width: 36px;
+   height: 100%;
+   z-index: 2;
+   pointer-events: none;
+}
+
+.sliderWrapper::before {
+   left: 0;
+   background: linear-gradient(to right, #ffffff 50%, rgba(255,255,255,0));
+}
+
+.sliderWrapper::after {
+   right: 0;
+   background: linear-gradient(to left, #ffffff 50%, rgba(255,255,255,0));
+}
+
+.swiperHint {
+   font-size: 0.95rem;
+   color: #666;
+   margin-top: 8px;
+   text-align: center;
+}

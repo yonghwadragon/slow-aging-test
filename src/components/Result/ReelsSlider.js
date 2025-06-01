@@ -36,6 +36,7 @@ const ReelsSlider = () => (
         768: { slidesPerView: 2 }
       }}
     >
+    <p className={styles.swiperHint}>좌우로 넘기며 더 많은 영상을 확인해보세요 →</p>
       {reels.map((reel, idx) => (
         <SwiperSlide key={idx}>
           <div className={styles.reelCard}>

@@ -37,8 +37,15 @@ const GameScreen = () => {
     const audio = new Audio(`/audio/questions/q${currentQuestionIndex + 1}.mp3`);
     audioRef.current = audio;
     audio.play().catch(() => {});
+    // 예: 1.8초 후 버튼 활성화 (실제 길이보다 짧게 설정해도 무관)
+    const earlyEnableTimeout = setTimeout(() => {
+      setAudioEnded(true);
+    }, 1800);
+
+    // 만약 audio가 정말 끝났다면 이중으로 활성화됨을 방지하지 않음 (안전)
     audio.onended = () => {
       setAudioEnded(true);
+      clearTimeout(earlyEnableTimeout);
     };
   }, [currentQuestionIndex]);
 

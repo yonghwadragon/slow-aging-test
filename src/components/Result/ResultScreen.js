@@ -48,7 +48,7 @@ const ResultScreen = () => {
         </h2>
         <h3 style={{ fontSize: '1.6rem', margin: '0.2em 0' }}>{type}</h3>
         <ResultImageCard resultType={grade.imageFileName} />
-        <p style={{ fontSize: '1rem', color: '#555', marginBottom: '1.2em' }}>{message}</p>
+        <p className={styles.summaryText}>{message}</p>
         <div className={styles.analysisBox}>
           <h4>👍 잘하고 있는 점</h4>
           <ul>{goodPoints.map((point, idx) => <li key={idx}>{point}</li>)}</ul>
@@ -62,9 +62,8 @@ const ResultScreen = () => {
               <li key={idx}>{food.name} - {food.reason}</li>
             ))}
           </ul>
-
-          <p><i>{supplementaryNote}</i></p>
         </div>
+        <p className={styles.summaryText}>{supplementaryNote}</p>
       </div>
       
       <ShareButtons resultType={type} score={grade.score} />

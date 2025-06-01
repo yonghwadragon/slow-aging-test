@@ -50,21 +50,41 @@ const ResultScreen = () => {
         <ResultImageCard resultType={grade.imageFileName} />
         <p className={styles.summaryText}>{message}</p>
         <div className={styles.analysisBox}>
-          <h4>👍 잘하고 있는 점</h4>
-          <ul>{goodPoints.map((point, idx) => <li key={idx}>{point}</li>)}</ul>
+        <h4>👍 잘하고 있는 점</h4>
+        <ul className={styles.resultList}>
+          {goodPoints.map((point, idx) => (
+            <li key={idx}>
+              <span>✅</span>
+              <span>{point.replace(/^✅\s*/, '')}</span>
+            </li>
+          ))}
+        </ul>
 
-          <h4>⚡ 개선할 점</h4>
-          <ul>{improvePoints.map((point, idx) => <li key={idx}>{point}</li>)}</ul>
+        <h4>⚡ 개선할 점</h4>
+        <ul className={styles.resultList}>
+          {improvePoints.map((point, idx) => (
+            <li key={idx}>
+              <span>✨</span>
+              <span>{point.replace(/^✨\s*/, '')}</span>
+            </li>
+          ))}
+        </ul>
 
-          <h4>🥗 추천 음식</h4>
-          <ul>
-            {recommendedFoods.map((food, idx) => (
-              <li key={idx}>{food.name} - {food.reason}</li>
-            ))}
-          </ul>
+        <h4>🥗 추천 음식</h4>
+        <ul className={styles.resultList}>
+          {recommendedFoods.map((food, idx) => (
+            <li key={idx}>
+              <span>{food.name}</span>
+              <span>- {food.reason}</span>
+            </li>
+          ))}
+        </ul>
         </div>
-        <p className={styles.summaryText}>{supplementaryNote}</p>
-      </div>
+
+        <div className={styles.supplementaryBox}>
+          <p>{supplementaryNote}</p>
+        </div>
+    </div>
       
       <ShareButtons resultType={type} score={grade.score} />
       <ReelsSlider />

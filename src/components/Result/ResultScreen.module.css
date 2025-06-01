@@ -47,14 +47,15 @@
 
 .supplementaryBox {
    margin-top: 24px;
-   background-color: #fffaf1;
-   border-left: 5px solid #fbbd23;
+   background-color: #f0f9ff;
+   border-left: 5px solid #2196f3;
    padding: 16px 20px;
    max-width: 680px;
    margin-left: auto;
    margin-right: auto;
    font-size: 1rem;
-   color: #7a5e00;
+   color: #0b1f33; 
+   font-weight: 900;
    line-height: 1.6;
    word-break: keep-all;
    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
@@ -122,11 +123,53 @@
   color: #444;
   margin-bottom: 4px;
 }
-.analysisBox p {
-  margin-top: 16px;
-  font-style: italic;
-  font-size: 0.95rem;
-  color: #666;
+
+.supplementaryBox {
+  margin-top: 24px;
+  background-color: #fffaf1;
+  border-left: 5px solid #fbbd23;
+  padding: 16px 20px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  color: #7a5e00;
+  line-height: 1.6;
+  word-break: keep-all;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.resultList {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 6px;
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.resultList li {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%; 
+  max-width: 500px; 
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  word-break: keep-all;
+  padding: 2px 6px;
+}
+
+.resultList li span:first-child {
+  min-width: 24px;
+  text-align: center; 
+  flex-shrink: 0;
 }
 
 .credits {

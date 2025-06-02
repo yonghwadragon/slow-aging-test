@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://slow-aging-test.vercel.app/sitemap.xml

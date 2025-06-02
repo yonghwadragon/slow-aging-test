@@ -90,7 +90,7 @@ const GameScreen = () => {
           <ClickSoundButton
             key={index}
             className={`${styles.option} ${styles[option.styleType]}`}
-            onClick={() => answerQuestion(currentQuestion.id, option.point)}
+            onClick={() => answerQuestion(currentQuestion.id, option.point, option.id)}
             disabled={!audioEnded}
           >
             <div className={styles.optionContent}>

@@ -10,39 +10,61 @@ import ResultImageCard from './ResultImageCard';
 import ClickSoundButton from '../common/ClickSoundButton';
 import { db } from "@/lib/firebase";
 import { doc, getDoc, setDoc, updateDoc, increment } from "firebase/firestore";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { useGame } from '@/context/GameContext';
 
 const ResultScreen = () => {
   const router = useRouter();
   const score = parseInt(router.query.score, 10);
-
+  const { answers } = useGame();
   const resultAudioRef = useRef(null);
-
-  useEffect(() => {
-    // 결과 페이지 방문 수 Firebase에 기록
-    const updateVisitCount = async () => {
-      try {
-        const docRef = doc(db, "metrics", "resultViews");
-        const snapshot = await getDoc(docRef);
-        if (!snapshot.exists()) {
-          await setDoc(docRef, { count: 1 });
-        } else {
-          await updateDoc(docRef, { count: increment(1) });
-        }
-      } catch (e) {
-        console.warn("방문자 수 업데이트 실패", e);
-      }
-    };
-    updateVisitCount();
-
- if (resultAudioRef.current) {
-    resultAudioRef.current.play().catch((e) =>
-      console.warn("결과 사운드 재생 실패", e)
-    );
-  }
-}, []);
-
+  const alreadySaved = useRef(false);
   const grade = getScoreGrade(score);
   const { type, message, goodPoints, improvePoints, recommendedFoods, supplementaryNote } = grade;
+
+  useEffect(() => {
+    const visitedKey = 'hasVisitedResultPage';
+
+    if (!sessionStorage.getItem(visitedKey)) {
+      sessionStorage.setItem(visitedKey, 'true');
+      const updateVisitCount = async () => {
+        try {
+          const docRef = doc(db, "metrics", "resultViews");
+          const snapshot = await getDoc(docRef);
+          if (!snapshot.exists()) {
+            await setDoc(docRef, { count: 1 });
+          } else {
+            await updateDoc(docRef, { count: increment(1) });
+          }
+        } catch (e) {
+          console.warn("방문자 수 업데이트 실패", e);
+        }
+      };
+      updateVisitCount();
+    }
+
+    const saveResult = async () => {
+      if (alreadySaved.current || !Array.isArray(answers) || answers.length !== 7) return;
+      alreadySaved.current = true;
+      try {
+        await addDoc(collection(db, "responses"), {
+          answers,
+          score: grade?.score ?? 0,
+          resultType: grade?.type ?? "unknown",
+          timestamp: Timestamp.now()
+        });
+      } catch (e) {
+        console.warn("결과 저장 실패", e);
+      }
+    };
+    saveResult();
+
+    if (resultAudioRef.current) {
+      resultAudioRef.current.play().catch((e) =>
+        console.warn("결과 사운드 재생 실패", e)
+      );
+    }
+  }, [grade, answers]);
 
   const handleRestart = () => {
     router.push('/');
@@ -103,7 +125,7 @@ const ResultScreen = () => {
           <p>{supplementaryNote}</p>
         </div>
     </div>
-      
+
       <ShareButtons resultType={type} score={grade.score} />
       <ReelsSlider />
 

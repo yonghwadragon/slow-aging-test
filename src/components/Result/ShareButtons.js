@@ -7,7 +7,7 @@ import ClickSoundButton from '../common/ClickSoundButton';
 const SITE_URL = typeof window !== 'undefined' ? window.location.origin : 'https://slow-aging-test.vercel.app/';
 
 const ShareButtons = ({ resultType, score }) => {
-  const shareText = `🧪 나의 노화 점수는 ${score}점, 유형은 "${resultType}"이래요!\n당신도 지금 테스트해보세요 👉 ${SITE_URL}`;
+  const shareText = `✨ 내 슬로우에이징 레벨은 ${score}점! 유형은 "${resultType}"이래!\n너도 궁금하지? 지금 바로 해봐 👉 ${SITE_URL}`;
 
   // 클립보드에 복사
   const handleCopy = async () => {

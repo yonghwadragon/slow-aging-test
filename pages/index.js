@@ -76,6 +76,8 @@ export default function Home() {
     <Head>
       <title>저속노화 레벨 테스트 | 슬로우에이징 지수 확인하기</title>
       
+      <meta name="naver-site-verification" content="f14b95b92fe1f093af13848f6f3650ee463eee2e" />
+
       <meta 
         name="description" 
         content="간단한 슬로우에이징 테스트로 내 몸의 노화 속도를 점수로 진단하세요. 나에게 맞는 건강 루틴도 함께 알아보세요." 

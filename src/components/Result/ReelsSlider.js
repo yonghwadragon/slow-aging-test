@@ -3,6 +3,22 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import styles from './ReelsSlider.module.css';
+import { db } from "@/lib/firebase";
+import { doc, getDoc, setDoc, updateDoc, increment } from "firebase/firestore";
+
+const handleReelClick = async (reelId) => {
+  try {
+    const docRef = doc(db, "interactions", `reelsClicks_${reelId}`);
+    const snapshot = await getDoc(docRef);
+    if (!snapshot.exists()) {
+      await setDoc(docRef, { count: 1 });
+    } else {
+      await updateDoc(docRef, { count: increment(1) });
+    }
+  } catch (e) {
+    console.warn("릴스 클릭 수 저장 실패", e);
+  }
+};
 
 const reels = [
   {
@@ -47,6 +63,7 @@ const ReelsSlider = () => (
               onClick={() => {
                 const sound = new Audio('/audio/click.mp3');
                 sound.play().catch(() => {});
+                handleReelClick(`reel${idx + 1}`);
               }}
             >
               <img src={reel.thumbnail} alt={reel.title} className={styles.thumbnail} />

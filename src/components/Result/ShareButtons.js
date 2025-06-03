@@ -2,6 +2,22 @@
 import React from 'react';
 import styles from './ShareButtons.module.css';
 import ClickSoundButton from '../common/ClickSoundButton';
+import { db } from "@/lib/firebase";
+import { doc, getDoc, setDoc, updateDoc, increment } from "firebase/firestore";
+
+const trackShareClick = async (type) => {
+  try {
+    const docRef = doc(db, "interactions", "shareClicks");
+    const snapshot = await getDoc(docRef);
+    if (!snapshot.exists()) {
+      await setDoc(docRef, { [type]: 1 });
+    } else {
+      await updateDoc(docRef, { [type]: increment(1) });
+    }
+  } catch (e) {
+    console.warn("공유 클릭 수 저장 실패", e);
+  }
+};
 
 // 현재 도메인 기반으로 링크 생성 (클라이언트 측)
 const SITE_URL = typeof window !== 'undefined' ? window.location.origin : 'https://slow-aging-test.vercel.app/';
@@ -14,18 +30,20 @@ const ShareButtons = ({ resultType, score }) => {
     try {
       await navigator.clipboard.writeText(shareText);
       alert('링크와 결과가 복사되었어요! 친구에게 공유해보세요!');
+      await trackShareClick("copyLink");
     } catch (err) {
       alert('복사에 실패했어요 😢');
     }
   };
 
   // 모바일 Web Share API
-  const handleNativeShare = () => {
+  const handleNativeShare = async () => {
     if (navigator.share) {
       navigator.share({
         title: "지친 유형 테스트 결과",
         text: shareText
       });
+     await trackShareClick("webShare");
     } else {
       alert('이 브라우저는 공유 기능을 지원하지 않아요.');
     }
@@ -45,6 +63,7 @@ const ShareButtons = ({ resultType, score }) => {
            onClick={() => {
              const sound = new Audio('/audio/click.mp3');
              sound.play().catch(() => {});
+             trackShareClick("instagram");
            }}
          >
            📷 인스타 보기

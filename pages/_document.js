@@ -5,7 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" href="/favicon_antlers_pair.ico" />
-                {/* GA4 삽입 */}
+
+        {/* ✅ GA4 삽입 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-44KKB5KYPW"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -17,6 +18,14 @@ export default function Document() {
             `,
           }}
         />
+
+        {/* ✅ Google AdSense 스크립트 삽입 */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9720816639692845"
+          crossOrigin="anonymous"
+        ></script>
+
       </Head>
       <body>
         <Main />

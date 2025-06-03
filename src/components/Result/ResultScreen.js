@@ -67,6 +67,7 @@ const ResultScreen = () => {
   }, [grade, answers]);
 
   const handleRestart = () => {
+    sessionStorage.removeItem('hasVisitedResultPage');
     router.push('/');
   };
 

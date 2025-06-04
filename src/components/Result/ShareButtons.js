@@ -53,7 +53,7 @@ const ShareButtons = ({ resultType, score }) => {
     <div className={styles.shareWrapper}>
       <p className={styles.shareTitle}>📢 내 결과 공유하기</p>
       <div className={styles.buttonGroup}>
-        <ClickSoundButton onClick={handleCopy} className={styles.copyButton}>🔗 링크 복사</ClickSoundButton>
+        <ClickSoundButton onClick={handleCopy} className={styles.copyButton}>🔗 내 결과 복사</ClickSoundButton>
         <ClickSoundButton onClick={handleNativeShare} className={styles.shareButton}>📱 바로 공유</ClickSoundButton>
          <a
            href="https://www.instagram.com/handong_lab_official/"

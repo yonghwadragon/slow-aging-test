@@ -22,6 +22,23 @@ export default function TestPage() {
        <meta name="twitter:image" content="https://slow-aging-test.vercel.app/images/questions/q5.png" />
      </Head>
      <GameScreen />
+        <footer
+          style={{
+            padding: '16px',
+            fontSize: '0.78rem',
+            lineHeight: '1.6',
+            color: '#888',
+            textAlign: 'center',
+            maxWidth: '720px',
+            margin: '0 auto',
+            wordBreak: 'keep-all',
+            whiteSpace: 'normal',
+          }}
+        >
+          슬로우에이징 테스트는 간단한 질문을 통해 당신의 건강 습관과 노화 속도를 분석하고, 
+          맞춤형 건강 관리 팁과 추천 루틴을 제공하는 콘텐츠입니다.<br />
+          또한, 건강에 관심 있는 사용자를 위한 다양한 정보와 관련 광고가 포함될 수 있습니다.
+        </footer>
    </>
 );
 }

@@ -1,6 +1,7 @@
 // pages/result.js
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 
 const ResultScreen = dynamic(
   () => import("../src/components/Result/ResultScreen"),
@@ -8,6 +9,17 @@ const ResultScreen = dynamic(
 );
 
 export default function ResultPage() {
+  useEffect(() => {
+    const adEl = document.querySelector(".adsbygoogle");
+    if (adEl && !adEl.getAttribute("data-adsbygoogle-status")) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.warn("adsbygoogle push 실패", e);
+      }
+    }
+  }, []);
+
   return (
     <>
     <Head>
@@ -23,6 +35,16 @@ export default function ResultPage() {
       <meta name="twitter:image" content="https://slow-aging-test.vercel.app/images/questions/q5.png" />
     </Head>
     <ResultScreen />
+         <div style={{ marginTop: '40px', textAlign: 'center' }}>
+       <ins className="adsbygoogle"
+            style={{ display: 'block', width: '100%', height: '100px', backgroundColor: '#f0f0f0' }}
+            data-ad-client="ca-pub-9720816639692845"
+            data-ad-slot="5126980773"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+       </ins>
+       
+     </div>
         <footer
           style={{
             padding: '16px',

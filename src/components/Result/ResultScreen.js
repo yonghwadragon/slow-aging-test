@@ -59,10 +59,10 @@ const ResultScreen = () => {
     };
     saveResult();
 
-    if (resultAudioRef.current) {
-      resultAudioRef.current.play().catch((e) =>
-        console.warn("결과 사운드 재생 실패", e)
-      );
+    if (document.visibilityState === 'visible' && resultAudioRef.current) {
+    resultAudioRef.current.play().catch(() => {
+      // 사용자 인터랙션 전 자동 재생 차단됨 → 에러 무시
+    });
     }
   }, [grade, answers]);
 

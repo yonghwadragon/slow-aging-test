@@ -15,6 +15,7 @@ const ResultImageCard = ({ resultType }) => {
           width={160}
           height={160}
           className={styles.resultImage}
+          priority
         />
       </div>
     </div>

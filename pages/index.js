@@ -41,6 +41,22 @@ export default function Home() {
     fetchVisitCount();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const adEl = document.querySelector(".adsbygoogle");
+      if (adEl && !adEl.getAttribute("data-adsbygoogle-status")) {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.warn("adsbygoogle push 실패", e);
+        }
+      } else {
+        console.log("광고 이미 삽입됨 - push 생략");
+      }
+    }, 800); // DOM 렌더링 대기 후 실행
+    return () => clearTimeout(timer);
+  }, []);
+
   // 버튼 클릭 시 실행
   const handleStartClick = () => {
     if (hasPlayed) return;
@@ -187,6 +203,15 @@ export default function Home() {
           </>
         )}
       </main>
+     <div style={{ marginTop: '40px', textAlign: 'center' }}>
+       <ins className="adsbygoogle"
+            style={{ display: 'block', width: '100%', height: '100px', backgroundColor: '#f0f0f0' }}
+            data-ad-client="ca-pub-9720816639692845"
+            data-ad-slot="3643342861"
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+       </ins>
+     </div>
         <footer
           style={{
             padding: '16px',

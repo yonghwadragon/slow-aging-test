@@ -8,18 +8,6 @@ const GameScreen = dynamic(() => import("@/components/Game/GameScreen"), {
 });
 
 export default function TestPage() {
-
-  useEffect(() => {
-    const adEl = document.querySelector(".adsbygoogle");
-    if (adEl && !adEl.getAttribute("data-adsbygoogle-status")) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
-        console.warn("adsbygoogle push 실패", e);
-      }
-    }
-  }, []);
-
   return (
     <>
      <Head>
@@ -36,14 +24,6 @@ export default function TestPage() {
      </Head>
      <GameScreen />
      <div style={{ marginTop: '40px', textAlign: 'center' }}>
-       <ins className="adsbygoogle"
-            style={{ display: 'block', width: '100%', height: '100px', backgroundColor: '#f0f0f0' }}
-            data-ad-client="ca-pub-9720816639692845"
-            data-ad-slot="2476103997"
-            data-ad-format="auto"
-            data-full-width-responsive="true">
-       </ins>
-       
      </div>
         <footer
           style={{
